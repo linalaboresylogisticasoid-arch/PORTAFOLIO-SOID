@@ -1,0 +1,122 @@
+% Portafolio SOID S.A.S. — listo para compilar con XeLaTeX o LuaLaTeX
+\documentclass[11pt, a4paper]{article}
+
+% --- PAQUETES Y CONFIGURACIÓN ---
+\usepackage[a4paper, top=2cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+\usepackage{fontspec}            % Requiere XeLaTeX o LuaLaTeX
+\usepackage[spanish, bidi=basic, provide=*]{babel}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{tikz}                % <- añadido: necesario para tikzpicture
+\usepackage{microtype}           % mejora la tipografía
+\usepackage{graphicx}            % por si incluyes imágenes luego
+% \usepackage{hyperref}          % opcional: activar si quieres hipervínculos y metadatos
+
+% --- DEFINICIÓN DE COLORES CORPORATIVOS ---
+\definecolor{SoidGreen}{HTML}{16A34A}
+\definecolor{SoidOrange}{HTML}{F59E0B}
+\definecolor{SoidDark}{HTML}{1E293B}
+
+% --- CONFIGURACIÓN DE FUENTES ---
+% Usar Noto Sans como fuente principal (asegúrate de tenerla instalada)
+\setsansfont{Noto Sans}
+\renewcommand{\familydefault}{\sfdefault} % usar sans como fuente por defecto
+
+\setlist[itemize]{label=\color{SoidGreen}\tiny$\blacksquare$}
+
+% --- ESTILO DE TÍTULOS ---
+\titleformat{\section}
+  {\color{SoidDark}\normalfont\Large\bfseries\uppercase}{\thesection}{1em}{}[{\titlerule[1pt]}]
+  
+\titleformat{\subsection}
+  {\color{SoidGreen}\normalfont\large\bfseries\uppercase}{}{0em}{}
+
+% --- ENCABEZADO Y PIE DE PÁGINA ---
+\pagestyle{fancy}
+\fancyhf{}\fancyhead[L]{\color{SoidGreen}\textbf{SOID S.A.S.} \small| NIT: 901622788-2}
+\fancyhead[R]{\small Labores y Logística}
+\fancyfoot[C]{\small \textit{\"Su tranquilidad es nuestra labor; su seguridad es nuestra meta\"}}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+
+% --- PORTADA SIMPLIFICADA ---
+\begin{center}
+    \vspace*{1cm}
+    
+    % Simulación del Isotipo
+    \begin{tikzpicture}[scale=1]
+        \fill[SoidGreen] (0,0) -- (-1.5,1.5) -- (-1.5,3) -- (0,4.5) -- cycle;
+        \fill[SoidOrange] (0,0) -- (1.5,1.5) -- (1.5,3) -- (0,4.5) -- cycle;
+        % la línea blanca puede no verse en fondo blanco; si la vas a imprimir sobre fondo blanco,
+        % considera usar otro color o un trazo oscuro
+        \draw[white, line width=2pt, dashed] (1,4) .. controls (-1,2.5) and (1,1.5) .. (-1,0.5);
+    \end{tikzpicture}
+    
+    \vspace{0.8cm}
+    {\fontsize{45}{50}\selectfont \textbf{\color{SoidGreen}SOID \color{SoidDark}S.A.S.}} \\
+    \vspace{0.2cm}
+    {\large \textbf{\color{SoidDark}LABORES Y LOGÍSTICA}} \\
+    \vspace{0.5cm}
+    \begin{tcolorbox}[colback=SoidGreen, colframe=SoidGreen, arc=0pt, boxrule=0pt, width=5cm, center]
+        \centerline{\color{white}\bfseries\small SEGURIDAD VIAL}
+    \end{tcolorbox}
+    
+    \vspace{2cm}
+    \section*{PORTAFOLIO DE SERVICIOS 2026}
+\end{center}
+
+\vspace{1cm}
+
+% --- PERFIL CORPORATIVO ---
+\begin{tcolorbox}[colback=white, colframe=SoidDark, arc=10pt, title=\textbf{QUIÉNES SOMOS}]
+    SOID S.A.S. es una empresa líder en el sector logístico del Valle del Cauca, especializada en el transporte de carga extradimensionada y servicios de apoyo técnico vial. Nuestro compromiso radica en la eficiencia operativa y el estricto cumplimiento de las normas de seguridad.
+\end{tcolorbox}
+
+\begin{multicols}{2}
+    \subsection*{Misión}
+    Brindar soluciones logísticas integrales que aseguren el traslado exitoso de los activos de nuestros clientes, fundamentados en la innovación y la protección vial.
+    
+    \columnbreak
+    
+    \subsection*{Visión}
+    Ser para el año 2030 el aliado estratégico número uno a nivel nacional en logística de maquinaria pesada y servicios de mensajería técnica.
+\end{multicols}
+
+\vspace{0.8cm}
+
+% --- SERVICIOS ---
+\section*{Servicios Especializados}
+
+\begin{description}[style=unboxed,leftmargin=0cm]
+    \item[\color{SoidGreen}\Large\textbf{01. CARGA EXTRADIMENSIONADA}] \hfill \\
+    Traslado especializado de maquinaria agrícola (cosechadoras de caña, tractores, equipos industriales). Contamos con la logística necesaria para movimientos de gran escala en rutas nacionales.
+    
+    \item[\color{SoidOrange}\Large\textbf{02. ESCOLTA TÉCNICA VIAL}] \hfill \\
+    Acompañamiento con vehículos certificados, equipados con pértigas y señalización reglamentaria. Gestión de permisos ante autoridades viales y estudios de ruta.
+    
+    \item[\color{SoidGreen}\Large\textbf{03. MENSAJERÍA Y ENCOMIENDAS}] \hfill \\
+    Servicio de mensajería técnica ágil para el sector agroindustrial. Transporte de repuestos críticos y paquetería empresarial con entregas de alta prioridad.
+\end{description}
+
+\vspace{2cm}
+
+% --- CONTACTO ---
+\begin{center}
+    \begin{tcolorbox}[colback=SoidDark, colframe=SoidDark, arc=15pt, width=12cm]
+        \color{white}
+        \centerline{\large \textbf{INFORMACIÓN DE CONTACTO}}
+        \vspace{0.3cm}
+        \centerline{\small \textbf{Dirección:} Palmira, Valle del Cauca}
+        \centerline{\small \textbf{Teléfono:} 315 447 4627}
+        \centerline{\small \textbf{Correo:} comercial@laboresylogisticasoidsas.com}
+    \end{tcolorbox}
+\end{center}
+
+\end{document}
